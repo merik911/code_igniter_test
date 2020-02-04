@@ -143,7 +143,6 @@ class Payment extends CI_Controller
 	 */
 	public function failed()
 	{
-
 		$lastTrnDetails = $this->getTrnDetails();
 		$details = [
 			'trnId' => $lastTrnDetails['id'],
@@ -164,7 +163,7 @@ class Payment extends CI_Controller
 		if (!empty($lastTrnError) && isset($runtimeErrorDescriptions[$lastTrnError])) {
 			$error = $runtimeErrorDescriptions[$lastTrnError];
 		}
-		$this->load->view('payment/failed', ['error' => $error]);
+		$this->load->view('payment/error', ['error' => $error]);
 	}
 
 }
